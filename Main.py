@@ -1,6 +1,12 @@
 # funciones de carga y modificacion de archivos
-def cargarArchivo(archivo: str):
-    pass
+def verSocios(archivo: str = 'socios.txt'):
+    
+    with open(file= archivo, mode= 'r') as f:
+        
+        lineas = f.readlines()
+        
+        for linea in lineas:
+            print(linea)
 
 
 # cosas basicas del main y handlers
@@ -16,7 +22,10 @@ def opciones():
 
 # aca van a ir las llamadas a funcion segun se requiera
 def handlerOpciones(opcion: int):
-    pass
+    match opcion:
+        case 6:
+            print("entro la funcion y el case funciona")
+            verSocios()
     
 #main, dejarlo lo mas bobo que se pueda
 def main():
@@ -35,3 +44,5 @@ def main():
         
         except ValueError:
             print("selecciona un numero!!!")
+            
+main()
