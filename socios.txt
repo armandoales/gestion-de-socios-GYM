@@ -1,3 +1,4 @@
 30111222;Laura Gómez;funcional;10;12
 28999000;Martín Ruiz;pileta;8;3
 35444555;Sofía Díaz;musculacion;10;20
+222222;jesu;error

@@ -39,13 +39,16 @@ def verSocios():
         # [dni, NyA, entrenamiento, ultima cuota pagada, asistencia]
         datos = linea.strip().split(";")
         
+        try:
+            socio = {"dni": datos[0],
+                    "entrenamiento": datos[1],
+                    "ultimaC": datos[2],
+                    "asistencia": datos[3]}
+            
+            printearSocios(socio)
         
-        socio = {"dni": datos[0],
-                "entrenamiento": datos[1],
-                "ultimaC": datos[2],
-                "asistencia": datos[3]}
-        
-        printearSocios(socio)
+        except Exception:
+            continue
 
 
 def verMorosos(archivo: str = 'socios.txt'):
