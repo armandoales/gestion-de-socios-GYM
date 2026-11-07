@@ -2,6 +2,16 @@ import os
 
 # funciones de carga y modificacion de archivos
 # cambiar segun quien lo tenga
+
+def printearSocios(socio: dict):
+    print("--------------------")
+    print("dni: ", socio["dni"])
+    print("entrenamiento: ", socio["entrenamiento"])
+    print("ultimaC: ", socio["ultimaC"])
+    print("asistencia: ", socio["asistencia"])
+    print('--------------------')
+    
+
 def verSocios(archivo: str = 'socios.txt'):
 
     # aca levantamos el archivo obteniendo la ruta, importante clonar el repo para probar
@@ -14,10 +24,16 @@ def verSocios(archivo: str = 'socios.txt'):
         lineas = f.readlines()
         
         for linea in lineas:
+            # [dni, NyA, entrenamiento, ultima cuota pagada, asistencia]
             datos = linea.strip().split(";")
-            print(datos)
             
             
+            socio = {"dni": datos[0],
+                     "entrenamiento": datos[1],
+                     "ultimaC": datos[2],
+                     "asistencia": datos[3]}
+            
+            printearSocios(socio)
    
 
 
