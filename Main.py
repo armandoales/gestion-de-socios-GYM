@@ -78,6 +78,25 @@ def verMorosos(mes: int, archivo: str = 'socios.txt', ):
         for socio in listaSocios:
             if socio['ultimaC'] == mes:
                 printearSocios(socio)
+                
+
+def verCantSocios(archivo: str = 'socios.txt'):
+    
+    listaSocios = devolverListaSocios(archivo= archivo)
+    entrenamientos = {}
+    
+    for socio in listaSocios:
+        
+        if socio['entrenamiento'] not in entrenamientos:
+            entrenamientos[socio['entrenamiento']] = 1
+        else:
+            entrenamientos[socio['entrenamiento']] += 1
+            
+    
+    for entrenamiento, cantidad in entrenamientos.items():
+        print(f'{entrenamiento}: {cantidad} de personas')
+        
+    print("total: ", len(listaSocios))            
 
 
 # cosas basicas del main y handlers
@@ -86,7 +105,7 @@ def opciones():
     print("2. ver cantidad de socios")
     print("3. ver promedio de asistencias por plan")
     print("4. Reporte: morosos y sus deudas")
-    print("5. aniadir cliente") # corregir aniadir enie
+    print("5. añadir cliente") 
     print("7. eliminar cliente")
     print("8. ver todos los socios")
     print("9. registrar el pago del mes")
