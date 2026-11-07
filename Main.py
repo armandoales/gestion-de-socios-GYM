@@ -14,7 +14,10 @@ def verSocios(archivo: str = 'socios.txt'):
         lineas = f.readlines()
         
         for linea in lineas:
-            print(linea)
+            datos = linea.strip().split(";")
+            print(datos)
+            
+            
    
 
 
