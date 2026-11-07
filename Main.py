@@ -1,10 +1,13 @@
-# import os
+import os
 
 # funciones de carga y modificacion de archivos
 # cambiar segun quien lo tenga
-def verSocios(archivo: str = r'C:\Users\jesus\AppData\Local\Programs\Microsoft VS Code\socios.txt'):
-    # print("path = ", os.path.abspath(archivo))
-    with open(file= archivo, mode= 'r') as f:
+def verSocios(archivo: str = 'socios.txt'):
+
+    carpeta = os.path.dirname(os.path.abspath(__file__))
+    ruta = os.path.join(carpeta, archivo)
+    
+    with open(file= ruta, mode= 'r', encoding= "utf-8") as f:
         
         lineas = f.readlines()
         
