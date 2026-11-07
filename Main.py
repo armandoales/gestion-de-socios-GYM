@@ -40,7 +40,7 @@ def handlerOpciones(opcion: int):
             verSocios()
 
     
-#main, dejarlo lo mas bobo que se pueda
+# main, dejarlo lo mas bobo que se pueda
 def main():
     
     while True:
