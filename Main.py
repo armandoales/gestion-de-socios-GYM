@@ -1,12 +1,15 @@
+import os
+
 # funciones de carga y modificacion de archivos
-def verSocios(archivo: str = 'socios.txt'):
+def verSocios(archivo: str = r'C:\Users\jesus\AppData\Local\Programs\Microsoft VS Code\socios.txt'):
     
-    with open(file= archivo, mode= 'r') as f:
+    # with open(file= archivo, mode= 'r') as f:
         
-        lineas = f.readlines()
+    #     lineas = f.readlines()
         
-        for linea in lineas:
-            print(linea)
+    #     for linea in lineas:
+    #         print(linea)
+    print("path = ", os.path.abspath(archivo))
 
 
 # cosas basicas del main y handlers
