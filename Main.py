@@ -3,6 +3,18 @@ import os
 # funciones de carga y modificacion de archivos
 # cambiar segun quien lo tenga
 # probar
+# aca levantamos el archivo obteniendo la ruta, importante clonar el repo para probar
+def cargarRutaArchivo(archivo: str = 'socios.txt'):
+    
+    carpeta = os.path.dirname(os.path.abspath(__file__))
+    ruta = os.path.join(carpeta, archivo)
+    
+    return ruta
+
+def devolverListaSocios():
+    pass
+
+
 def printearSocios(socio: dict):
     print("--------------------")
     print("dni: ", socio["dni"])
@@ -12,12 +24,9 @@ def printearSocios(socio: dict):
     print('--------------------')
     
 
-def verSocios(archivo: str = 'socios.txt'):
+def verSocios():
 
-    # aca levantamos el archivo obteniendo la ruta, importante clonar el repo para probar
-    carpeta = os.path.dirname(os.path.abspath(__file__))
-    ruta = os.path.join(carpeta, archivo)
-    
+    ruta = cargarRutaArchivo(archivo='socios.txt')
     # apertura de archivos
     with open(file= ruta, mode= 'r', encoding= "utf-8") as f:
         
@@ -34,7 +43,10 @@ def verSocios(archivo: str = 'socios.txt'):
                      "asistencia": datos[3]}
             
             printearSocios(socio)
-   
+
+
+def verMorosos(archivo: str = 'socios.txt'):
+    pass
 
 
 # cosas basicas del main y handlers
@@ -55,7 +67,6 @@ def opciones():
 def handlerOpciones(opcion: int):
     match opcion:
         case 6:
-            print("entro la funcion y el case funciona")
             verSocios()
 
     
