@@ -11,8 +11,15 @@ def cargarRutaArchivo(archivo: str = 'socios.txt'):
     
     return ruta
 
-def devolverListaSocios():
-    pass
+
+def devolverListaSocios(archivo: str = 'socios.txt'):
+    ruta = cargarRutaArchivo(archivo = 'socios.txt')
+    
+    with open(file = ruta, mode = 'r', encoding= 'utf-8') as f:
+        lineas = f.readlines()
+        
+        f.close()
+        return lineas
 
 
 def printearSocios(socio: dict):
@@ -26,23 +33,19 @@ def printearSocios(socio: dict):
 
 def verSocios():
 
-    ruta = cargarRutaArchivo(archivo='socios.txt')
-    # apertura de archivos
-    with open(file= ruta, mode= 'r', encoding= "utf-8") as f:
+    lineas = devolverListaSocios(archivo= 'socios.txt')
         
-        lineas = f.readlines()
+    for linea in lineas:
+        # [dni, NyA, entrenamiento, ultima cuota pagada, asistencia]
+        datos = linea.strip().split(";")
         
-        for linea in lineas:
-            # [dni, NyA, entrenamiento, ultima cuota pagada, asistencia]
-            datos = linea.strip().split(";")
-            
-            
-            socio = {"dni": datos[0],
-                     "entrenamiento": datos[1],
-                     "ultimaC": datos[2],
-                     "asistencia": datos[3]}
-            
-            printearSocios(socio)
+        
+        socio = {"dni": datos[0],
+                "entrenamiento": datos[1],
+                "ultimaC": datos[2],
+                "asistencia": datos[3]}
+        
+        printearSocios(socio)
 
 
 def verMorosos(archivo: str = 'socios.txt'):
