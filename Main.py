@@ -114,13 +114,31 @@ def promedioAsistencia(archivo: str = 'socios.txt'):
         print(f'{entrenamiento}: {(cantidad * 100) / totalParticipantes}%')            
 
 
+def aniadirCliente(archivo: str = 'socios.txt'):
+
+    nombre = str(input('dame el nombre: '))
+    dni = str(input("dame el dni: "))
+    entrenamiento= str(input("dame el entrenamiento que realizara: "))
+    mes = int(input('que mes pago? numero solo: '))
+
+    
+    ruta = cargarRutaArchivo(archivo= archivo)
+    
+    with open(file= ruta, mode= 'a', encode = 'utf-8') as f:
+        f.write(
+            f'{dni};{nombre};{entrenamiento};{mes};0'
+        )
+        f.close()
+
+    print('cliente añadido!!!!!')
+
 # cosas basicas del main y handlers
 def opciones():
     print("1. ver socios morosos (ingresar numero de mes actual)") # hecho
     print("2. ver cantidad de socios") # hecho
     print("3. ver promedio de asistencias por plan") # hecho
     print("4. Reporte: morosos y sus deudas")
-    print("5. añadir cliente") 
+    print("5. añadir cliente") #hecho 
     print("7. eliminar cliente")
     print("8. ver todos los socios") # hecho
     print("9. registrar el pago del mes")
@@ -146,6 +164,9 @@ def handlerOpciones(opcion: int, archivo: str = 'socios.txt'):
         
         case 3:
             promedioAsistencia(archivo= archivo)
+        
+        case 5:
+            aniadirCliente(archivo= archivo)
         
         case 8:
             verSocios(archivo= archivo)
