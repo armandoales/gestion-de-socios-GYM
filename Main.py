@@ -1,11 +1,16 @@
-# creacion del menu 
+# funciones de carga y modificacion de archivos
+def cargarArchivo(archivo: str):
+    pass
 
 
+# cosas basicas del main y handlers
 def opciones():
     print("1. ver socios morosos (anterior al mes que ingresa el usuario.)")
     print("2. ver cantidad de socios")
     print("3. ver promedio de asistencias por plan")
     print("4. Reporte: morosos y sus deudas")
+    print("5. aniadir cliente")
+    print("6. ver todos los socios")
     print("0. salir")
 
 
@@ -13,7 +18,7 @@ def opciones():
 def handlerOpciones(opcion: int):
     pass
     
-
+#main, dejarlo lo mas bobo que se pueda
 def main():
     
     while True:
