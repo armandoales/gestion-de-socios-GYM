@@ -125,6 +125,10 @@ def handlerOpciones(opcion: int, archivo: str = 'socios.txt'):
             except Exception:
                 print(' no fue correcto introducido')
         
+        
+        case 2:
+            verCantSocios(archivo= archivo)
+        
         case 6:
             verSocios(archivo= archivo)
 
