@@ -19,9 +19,11 @@ def opciones():
     print("2. ver cantidad de socios")
     print("3. ver promedio de asistencias por plan")
     print("4. Reporte: morosos y sus deudas")
-    print("5. aniadir cliente")
+    print("5. aniadir cliente") # corregir aniadir enie
     print("7. eliminar cliente")
     print("8. ver todos los socios")
+    print("9. registrar el pago del mes")
+    print("10. registrar asistencia")
     print("0. salir")
 
 
