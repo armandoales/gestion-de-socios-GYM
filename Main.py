@@ -47,7 +47,8 @@ def verSocios():
             
             printearSocios(socio)
         
-        except Exception:
+        except Exception as e:
+            print("error en el dni: ", e)
             continue
 
 
