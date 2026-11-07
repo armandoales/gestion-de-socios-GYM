@@ -118,7 +118,7 @@ def promedioAsistencia(archivo: str = 'socios.txt'):
 def opciones():
     print("1. ver socios morosos (ingresar numero de mes actual)") # hecho
     print("2. ver cantidad de socios") # hecho
-    print("3. ver promedio de asistencias por plan")
+    print("3. ver promedio de asistencias por plan") # hecho
     print("4. Reporte: morosos y sus deudas")
     print("5. añadir cliente") 
     print("7. eliminar cliente")
