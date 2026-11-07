@@ -4,9 +4,11 @@ import os
 # cambiar segun quien lo tenga
 def verSocios(archivo: str = 'socios.txt'):
 
+    # aca levantamos el archivo obteniendo la ruta, importante clonar el repo para probar
     carpeta = os.path.dirname(os.path.abspath(__file__))
     ruta = os.path.join(carpeta, archivo)
     
+    # apertura de archivos
     with open(file= ruta, mode= 'r', encoding= "utf-8") as f:
         
         lineas = f.readlines()
