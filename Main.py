@@ -88,9 +88,9 @@ def verCantSocios(archivo: str = 'socios.txt'):
     for socio in listaSocios:
         
         if socio['entrenamiento'] not in entrenamientos:
-            entrenamientos[socio['entrenamiento']] = 1
+            entrenamientos[str(socio['entrenamiento'])] = 1
         else:
-            entrenamientos[socio['entrenamiento']] += 1
+            entrenamientos[str(socio['entrenamiento'])] += 1
             
     
     for entrenamiento, cantidad in entrenamientos.items():
@@ -129,7 +129,7 @@ def handlerOpciones(opcion: int, archivo: str = 'socios.txt'):
         case 2:
             verCantSocios(archivo= archivo)
         
-        case 6:
+        case 8:
             verSocios(archivo= archivo)
 
     
