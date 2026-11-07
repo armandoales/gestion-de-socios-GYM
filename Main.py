@@ -69,38 +69,49 @@ def verMorosos(mes: int, archivo: str = 'socios.txt', ):
         print("error, no pueden haber meses negativos ni menores a uno")
     
     else:
-        
-        lineas = devolverListaSocios(archivo)
-        if mes == 1:
-            mes = 12
-        
-        else:
-            mes = mes - 1
 
         listaSocios = devolverListaSocios(archivo)
         
         for socio in listaSocios:
-            if socio['ultimaC'] == mes:
+            if socio['ultimaC'] != mes:
                 printearSocios(socio)
                 
 
+def diccionariosEntrenamientosYCantidad(archivo: str = 'socios.txt'):
+        listaSocios = devolverListaSocios(archivo= archivo)
+        entrenamientos = {}
+    
+        for socio in listaSocios:
+        
+            if socio['entrenamiento'] not in entrenamientos:
+                entrenamientos[str(socio['entrenamiento'])] = 1
+            else:
+                entrenamientos[str(socio['entrenamiento'])] += 1
+        
+        return entrenamientos, listaSocios
+
+
 def verCantSocios(archivo: str = 'socios.txt'):
     
-    listaSocios = devolverListaSocios(archivo= archivo)
-    entrenamientos = {}
+    entrenamientos, listaSocios = diccionariosEntrenamientosYCantidad(archivo= archivo)
     
-    for socio in listaSocios:
-        
-        if socio['entrenamiento'] not in entrenamientos:
-            entrenamientos[str(socio['entrenamiento'])] = 1
-        else:
-            entrenamientos[str(socio['entrenamiento'])] += 1
-            
-    
+    print("entrenamientos y su cantidad")
     for entrenamiento, cantidad in entrenamientos.items():
         print(f'{entrenamiento}: {cantidad} de personas')
         
-    print("total: ", len(listaSocios))            
+    print("total: ", len(listaSocios))
+    
+    
+def promedioAsistencia(archivo: str = 'socios.txt'):
+
+    entrenamientos, listaSocios = diccionariosEntrenamientosYCantidad(archivo= archivo)
+            
+    totalParticipantes = len(listaSocios)
+    
+    print("entrenamientos y procedimientos")
+    
+    for entrenamiento, cantidad in entrenamientos.items():
+        print(f'{entrenamiento}: {(cantidad * 100) / totalParticipantes}%')            
 
 
 # cosas basicas del main y handlers
@@ -132,6 +143,9 @@ def handlerOpciones(opcion: int, archivo: str = 'socios.txt'):
         
         case 2:
             verCantSocios(archivo= archivo)
+        
+        case 3:
+            promedioAsistencia(archivo= archivo)
         
         case 8:
             verSocios(archivo= archivo)
