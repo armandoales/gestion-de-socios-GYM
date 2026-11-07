@@ -2,7 +2,7 @@ import os
 
 # funciones de carga y modificacion de archivos
 # cambiar segun quien lo tenga
-
+# probar
 def printearSocios(socio: dict):
     print("--------------------")
     print("dni: ", socio["dni"])
