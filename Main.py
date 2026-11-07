@@ -23,14 +23,17 @@ def devolverListaSocios(archivo: str = 'socios.txt'):
         
         for linea in lineas:
             
-            datos = linea.strip().strip(';')
+            datos = linea.strip().split(';')
             
             try:
 
                 socio = {"dni": datos[0],
-                        "entrenamiento": datos[1],
-                        "ultimaC": datos[2],
-                        "asistencia": datos[3]}
+                        "nombre": datos[1],
+                        "entrenamiento": (datos[2]),
+                        "ultimaC": int(datos[3]),
+                        'asistencia': int(datos[4])}
+                
+                
                 listasocios.append(socio)            
 
             
@@ -45,6 +48,7 @@ def devolverListaSocios(archivo: str = 'socios.txt'):
 def printearSocios(socio: dict):
     print("--------------------")
     print("dni: ", socio["dni"])
+    print('nombre:', socio['nombre'])
     print("entrenamiento: ", socio["entrenamiento"])
     print("ultimaC: ", socio["ultimaC"])
     print("asistencia: ", socio["asistencia"])
