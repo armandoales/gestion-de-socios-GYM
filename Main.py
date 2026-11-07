@@ -101,16 +101,16 @@ def verCantSocios(archivo: str = 'socios.txt'):
 
 # cosas basicas del main y handlers
 def opciones():
-    print("1. ver socios morosos (ingresar numero de mes actual)")
-    print("2. ver cantidad de socios")
+    print("1. ver socios morosos (ingresar numero de mes actual)") # hecho
+    print("2. ver cantidad de socios") # hecho
     print("3. ver promedio de asistencias por plan")
     print("4. Reporte: morosos y sus deudas")
     print("5. añadir cliente") 
     print("7. eliminar cliente")
-    print("8. ver todos los socios")
+    print("8. ver todos los socios") # hecho
     print("9. registrar el pago del mes")
     print("10. registrar asistencia")
-    print("0. salir")
+    print("0. salir") # hecho
 
 
 # aca van a ir las llamadas a funcion segun se requiera
