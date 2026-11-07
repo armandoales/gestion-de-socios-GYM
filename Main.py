@@ -13,13 +13,33 @@ def cargarRutaArchivo(archivo: str = 'socios.txt'):
 
 
 def devolverListaSocios(archivo: str = 'socios.txt'):
-    ruta = cargarRutaArchivo(archivo = 'socios.txt')
+    ruta = cargarRutaArchivo(archivo)
+    
+    listasocios = []
+    
     
     with open(file = ruta, mode = 'r', encoding= 'utf-8') as f:
         lineas = f.readlines()
         
-        f.close()
-        return lineas
+        for linea in lineas:
+            
+            datos = linea.strip().strip(';')
+            
+            try:
+
+                socio = {"dni": datos[0],
+                        "entrenamiento": datos[1],
+                        "ultimaC": datos[2],
+                        "asistencia": datos[3]}
+                listasocios.append(socio)            
+
+            
+            except Exception as e:
+                print("error en el dni: ", e)
+                continue
+    
+    f.close()
+    return listasocios                
 
 
 def printearSocios(socio: dict):
@@ -29,36 +49,40 @@ def printearSocios(socio: dict):
     print("ultimaC: ", socio["ultimaC"])
     print("asistencia: ", socio["asistencia"])
     print('--------------------')
+
+
+def verSocios(archivo: str = 'socios.txt'):
+
+    listaSocios = devolverListaSocios(archivo)
     
+    for socio in listaSocios:
+        printearSocios(socio)
 
-def verSocios():
 
-    lineas = devolverListaSocios(archivo= 'socios.txt')
+def verMorosos(mes: int, archivo: str = 'socios.txt', ):
+    
+    if mes < 1:
+        print("error, no pueden haber meses negativos ni menores a uno")
+    
+    else:
         
-    for linea in lineas:
-        # [dni, NyA, entrenamiento, ultima cuota pagada, asistencia]
-        datos = linea.strip().split(";")
+        lineas = devolverListaSocios(archivo)
+        if mes == 1:
+            mes = 12
         
-        try:
-            socio = {"dni": datos[0],
-                    "entrenamiento": datos[1],
-                    "ultimaC": datos[2],
-                    "asistencia": datos[3]}
-            
-            printearSocios(socio)
+        else:
+            mes = mes - 1
+
+        listaSocios = devolverListaSocios(archivo)
         
-        except Exception as e:
-            print("error en el dni: ", e)
-            continue
-
-
-def verMorosos(archivo: str = 'socios.txt'):
-    pass
+        for socio in listaSocios:
+            if socio['ultimaC'] == mes:
+                printearSocios(socio)
 
 
 # cosas basicas del main y handlers
 def opciones():
-    print("1. ver socios morosos (anterior al mes que ingresa el usuario)")
+    print("1. ver socios morosos (ingresar numero de mes actual)")
     print("2. ver cantidad de socios")
     print("3. ver promedio de asistencias por plan")
     print("4. Reporte: morosos y sus deudas")
