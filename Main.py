@@ -95,10 +95,19 @@ def opciones():
 
 
 # aca van a ir las llamadas a funcion segun se requiera
-def handlerOpciones(opcion: int):
+def handlerOpciones(opcion: int, archivo: str = 'socios.txt'):
     match opcion:
+        
+        case 1:
+            try:
+                mes = int(input("dame el numero del mes"))
+                verMorosos(mes= mes, archivo= archivo)
+            
+            except Exception:
+                print(' no fue correcto introducido')
+        
         case 6:
-            verSocios()
+            verSocios(archivo= archivo)
 
     
 # main, dejarlo lo mas bobo que se pueda
