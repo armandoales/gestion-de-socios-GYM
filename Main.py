@@ -127,7 +127,7 @@ def aniadirCliente(archivo: str = 'socios.txt'):
         
         with open(file= ruta, mode= "a", encoding= 'utf-8') as f:
             f.write(
-                f'{dni};{nombre};{entrenamiento};{mes};0\n'
+                f'\n{dni};{nombre};{entrenamiento};{mes};0\n'
             )
             f.close()
 
