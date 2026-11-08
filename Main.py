@@ -116,21 +116,26 @@ def promedioAsistencia(archivo: str = 'socios.txt'):
 
 def aniadirCliente(archivo: str = 'socios.txt'):
 
-    nombre = str(input('dame el nombre: '))
-    dni = str(input("dame el dni: "))
-    entrenamiento= str(input("dame el entrenamiento que realizara: "))
-    mes = int(input('que mes pago? numero solo: '))
+    try:
+        nombre = str(input('dame el nombre: '))
+        dni = str(input("dame el dni: "))
+        entrenamiento= str(input("dame el entrenamiento que realizara: "))
+        mes = int(input('que mes pago? numero solo: '))
 
-    
-    ruta = cargarRutaArchivo(archivo= archivo)
-    
-    with open(file= ruta, mode= 'a', encode = 'utf-8') as f:
-        f.write(
-            f'{dni};{nombre};{entrenamiento};{mes};0'
-        )
-        f.close()
+        
+        ruta = cargarRutaArchivo(archivo= archivo)
+        
+        with open(file= ruta, mode= "a", encode = 'utf-8') as f:
+            f.write(
+                f'{dni};{nombre};{entrenamiento};{mes};0'
+            )
+            f.close()
 
-    print('cliente añadido!!!!!')
+        print('cliente añadido!!!!!')
+    
+    except Exception:
+        print("no se puede aniadir ningun cliente, problema fatal")
+
 
 # cosas basicas del main y handlers
 def opciones():
