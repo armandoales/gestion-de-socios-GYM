@@ -3,6 +3,7 @@
 35444555;Sofía Díaz;musculacion;10;20
 222222;jesu;error
 37248733;Gonzalo Martínez;pileta;3;10
+45454554;jeje;ku
 25660669;Daniela Rodríguez;funcional;10;20
 38686849;Antonella Suárez;pileta;3;10
 36942584;Daniela Gómez;musculacion;3;21

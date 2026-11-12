@@ -17,7 +17,7 @@ def cargarRutaArchivo(archivo: str = 'socios.txt'):
     return ruta
 
 
-def devolverDiccionarioSocios(archivo: str = 'socios.txt'):
+def devolverDiccionarioSocios(archivo: str = 'socios.txt'): # rahacer !!!!
     """
     carga los socios y usa el DNI como clave
     pasa las lineas incorrectas y nos devuelve cuantas encontro
@@ -598,5 +598,4 @@ def main():
             print("Selecciona un numero!!!")
 
 
-if __name__ == '__main__':
-    main()
+main()
