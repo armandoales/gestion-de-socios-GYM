@@ -17,47 +17,21 @@ def cargarRutaArchivo(archivo: str = 'socios.txt'):
     return ruta
 
 
-def devolverDiccionarioSocios(archivo: str = 'socios.txt'): # rahacer !!!!
-    """
-    carga los socios y usa el DNI como clave
-    pasa las lineas incorrectas y nos devuelve cuantas encontro
-    """
-
-    ruta = cargarRutaArchivo(archivo)
-
+def devolverDiccionarioSocios(archivo: str = 'socios.txt') -> dict:
     socios = {}
     errores = 0
 
     try:
-        with open(file=ruta, mode='r', encoding='utf-8') as f:
-
+        with open(cargarRutaArchivo(archivo), encoding='utf-8') as f:
             for linea in f:
-
                 try:
-                    datos = linea.strip().split(';')
-
-                    if len(datos) != 5:
-                        raise ValueError
-
-                    dni = datos[0].strip()
-                    nombre = datos[1].strip()
-                    plan = datos[2].strip().lower().replace('ó', 'o')
-                    ultimo_mes_pago = int(datos[3])
-                    asistencias = int(datos[4])
-
-                    if (not dni or not nombre or dni in socios or
-                        plan not in ['musculacion', 'funcional', 'pileta'] or
-                        ultimo_mes_pago < 1 or ultimo_mes_pago > 12 or
-                        asistencias < 0):
-                        raise ValueError
-
-                    socios[dni] = {
-                        'nombre': nombre,
-                        'plan': plan,
-                        'ultimo_mes_pago': ultimo_mes_pago,
-                        'asistencias': asistencias
+                    dni, nombre, plan, mes, asistencias = linea.strip().split(';')
+                    socios[dni.strip()] = {
+                        'nombre': nombre.strip(),
+                        'plan': plan.strip().lower().replace('ó', 'o'),
+                        'ultimo_mes_pago': int(mes),
+                        'asistencias': int(asistencias)
                     }
-
                 except ValueError:
                     errores += 1
 
